@@ -1,0 +1,436 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    min-height: 15rem;
+    padding: 35px 15px;
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    /* outline: 3px solid rgba(255, 255, 255, 0.089);
+    box-shadow: 0px 0px 100px 50px #00000060; */
+}
+
+
+.container .banner {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 13px 13px 0 0;
+}
+
+.container .avatar {
+    margin-top: 50px;
+    z-index: 1;
+    border-radius: 50%;
+    height: 115px;
+    width: 115px;
+    outline: 3px solid rgba(255, 255, 255, 0.301);
+}
+
+.container .profileLayout {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 27rem;
+    text-align: center;
+}
+
+.container .profileLayout .profileUsername {
+    font-weight: 600;
+    font-size: 36.5px;
+    width: fit-content;
+}
+
+.container .profileLayout .profileBadges {
+    content: attr(data-tooltip);
+    margin-bottom: 17px;
+    margin-top: 8px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.04);
+    border-radius: 25px;
+    display: flex;
+    gap: 5.5px;
+    justify-content: center;
+    padding: 6px 10px;
+}
+
+.container .profileLayout .profileBadges .profileBadge {
+    position: relative;
+    font-size: 20.5px;
+    display: flex;
+    align-items: center;
+    color: #ffffff !important;
+}
+
+.container .profileLayout .profileBadges .profileBadge::before {
+    content: '';
+    background-color: black;
+    opacity: 0;
+    color: white;
+    position: absolute;
+    font-size: 15px;
+    font-weight: 600;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    padding: 2px 16px;
+    z-index: 1;
+    filter: none;
+    box-shadow: none;
+    white-space: nowrap;
+    transition: opacity .3s;
+}
+
+.container .profileLayout .profileBadges .profileBadge:hover::before {
+    opacity: .8;
+}
+
+.container .profileLayout .profileBadges .profileBadge.dev:hover::before {
+    content: 'Developer';
+}
+.container .profileLayout .profileBadges .profileBadge.staff:hover::before {
+    content: 'Staff';
+}
+.container .profileLayout .profileBadges .profileBadge.certif:hover::before {
+    content: 'Certified';
+}
+.container .profileLayout .profileBadges .profileBadge.premium:hover::before {
+    content: 'Premium';
+}
+.container .profileLayout .profileBadges .profileBadge.bughunter:hover::before {
+    content: 'Bug Hunter';
+}
+.container .profileLayout .profileBadges .profileBadge.earlysupporter:hover::before {
+    content: 'Early Supporter';
+}
+.container .profileLayout .profileBadges .profileBadge.booster:hover::before {
+    content: 'Server Booster';
+}
+.container .profileLayout .profileBadges .profileBadge.graphic:hover::before {
+    content: 'Graphic Designer';
+}
+
+.container .profileLayout .profileBio {
+    font-weight: 570;
+    font-size: 17px;
+    margin-top: 5px;
+    color: white;
+    height: 23px;
+}
+
+.container .presenceWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 28rem;
+    width: 100%;
+}
+
+.container .presenceContainer {
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    width: 100%;
+}
+
+.container .presenceWrapper .discordInfos {
+    display: flex;
+    gap: 10px;
+    justify-content: left;
+    padding: 10px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.container .presenceWrapper .discordInfos .discordAvatar {
+    display: flex;
+    position: relative;
+}
+
+.container .presenceWrapper .discordInfos .discordAvatar .decoration {
+    position: absolute;
+    height: 86px;
+    width: 86px;
+    left: -8px;
+    top: -7px;
+}
+
+.container .presenceWrapper .discordInfos .discordAvatar .avatarImage {
+    border: 50%;
+    border-radius: 50%;
+    height: 70px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 70px;
+}
+
+.container .presenceWrapper .discordInfos .discordAvatar .discordStatus {
+    bottom: 2px;
+    height: 17px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    right: 2px;
+    width: 17px;
+}
+
+.container .presenceWrapper .discordInfos .discordActivity {
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    gap: 12px;
+}
+
+.container .presenceWrapper .discordInfos .discordUser {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container .presenceWrapper .discordInfos .discordUser h3 {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 2px;
+    font-style: italic;
+    text-align: left;
+}
+
+.container .presenceWrapper .discordInfos .discordUserDiv {
+    align-items: center;
+    display: flex;
+}
+
+.container .presenceWrapper .discordInfos .discordUserDiv span {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadges {
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadges img {
+    height: 22px;
+    object-fit: cover;
+    width: 22px;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadge {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadge {
+    position: relative;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadge::before {
+    content: attr(data-tooltip);
+    background-color: black;
+    color: white;
+    opacity: 0;
+    position: absolute;
+    font-size: 15px;
+    font-weight: 600;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    padding: 2px 16px;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.container .presenceWrapper .discordInfos .discordUserBadge:hover::before {
+    opacity: 0.8;
+}
+
+.presenceWrapper .spotifyInfos {
+    display: flex;
+    gap: 10px;
+    justify-content: left;
+    padding: 7px 10px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.presenceWrapper .spotifyCover {
+    display: flex;
+    align-items: center;
+}
+
+.presenceWrapper .spotifyDetails {
+    display: flex;
+    flex-direction: column;
+    min-width: 14rem;
+}
+
+.presenceWrapper .spotifyDetails .spotifyTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.presenceWrapper .spotifyDetails .spotifyTitle h1 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.presenceWrapper .spotifyDetails .spotifyTitle img {
+    width: 20px;
+    height: 20px;
+}
+
+.presenceWrapper .spotifyDetails .spotifyDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.presenceWrapper .spotifyDetails .spotifyDescription span {
+    font-size: 14px;
+}
+
+.presenceWrapper .spotifyDetails .spotifyDescription span:last-child {
+    color: rgb(160, 160, 160);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.presenceWrapper .spotifyDetails .spotifyProgress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 4px;
+    position: relative;
+}
+
+.presenceWrapper .spotifyDetails .spotifyProgress span {
+    font-size: 12px;
+}
+
+.presenceWrapper .spotifyDetails .bar {
+    width: 73%;
+    height: 4px;
+    border-radius: 6px;
+    position: absolute;
+    left: 30px;
+    background-color: grey;
+}
+
+.presenceWrapper .spotifyDetails .bar .progress {
+    width: 0%;
+    height: 4px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.container .linkedAccounts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    filter: drop-shadow(0 0 1.2px #ffffff) !important;
+}
+
+.container .linkedAccounts .linkedAccountsRedirect {
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container .linkedAccounts .linkedAccountsRedirect.copied::before {
+    content: 'Copied';
+}
+
+.container .linkedAccounts .linkedAccountsRedirect::before {
+    content: attr(data-type);
+    opacity: 0;
+    color: white;
+    position: absolute;
+    font-size: 15px;
+    font-weight: 600;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    padding: 2px 16px;
+    z-index: 1;
+    filter: none;
+    box-shadow: none;
+    white-space: nowrap;
+    transition: opacity .3s;
+}
+
+.container .linkedAccounts .linkedAccountsRedirect:hover::before {
+    opacity: .8;
+}
+
+.container .linkedAccountsRedirect {
+    text-decoration: none;
+    color: white;
+}
+
+.container .profileViews {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
